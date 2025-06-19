@@ -139,14 +139,15 @@ brew install cmake ninja clang
   git clone --recurse-submodules https://github.com/tr1ckydev/webview-bun
   cd webview-bun
   ```
+
 - Build the library for your platform.
 
   > Under the hood, it invokes webview's own cmake build system to compile the shared library file.
-  >
 
   ```bash
   bun run build
   ```
+
 - (Optional) Clear build cache and rebuild the library.
 
   ```bash

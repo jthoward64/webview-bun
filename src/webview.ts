@@ -187,6 +187,22 @@ export class Webview {
     this.destroy();
   }
 
+  /** Pump the OS message loop once.
+   *  @returns `true` if the window should keep running.
+   */
+  pump(block: boolean = false): boolean {
+    return !!lib.symbols.webview_pump_msgloop(this.#handle, block ? 1 : 0);
+  }
+
+  /** Run without blocking Bun’s event‑loop. */
+  runNonBlocking(): void {
+    const step = () => {
+      if (this.pump(false)) setTimeout(step, 0);
+      else this.destroy();
+    };
+    step();
+  }
+
   /**
    * Binds a callback so that it will appear in the webview with the given name
    * as a global async JavaScript function. Callback receives a seq and req value.
