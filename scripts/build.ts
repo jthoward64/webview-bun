@@ -15,7 +15,7 @@ switch (platform) {
         cd webview
         cmake -G "Ninja Multi-Config" -B build -S . \
             -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/host-llvm.cmake \
-            -DWEBVIEW_WEBKITGTK_API=6.0 \
+            -DWEBVIEW_WEBKITGTK_API=4.1 \
             -DWEBVIEW_ENABLE_CHECKS=false \
             -DWEBVIEW_BUILD_AMALGAMATION=false \
             -DWEBVIEW_BUILD_EXAMPLES=false \
